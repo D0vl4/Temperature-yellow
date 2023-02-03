@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather app</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+    />
+    <link rel="stylesheet" href="/Weather-app/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://em-content.zobj.net/thumbs/120/apple/325/sun-behind-cloud_26c5.png"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="date-segment">
+        <h2>Current <span class="underline">date</span> is:</h2>
+        <div class="date-container">
+          <div id="current-date"></div>
+        </div>
+      </div>
+      <div class="time-segment">
+        <h2>Current <span class="underline">time</span> is:</h2>
+        <div class="time-container">
+          <div class="hms-container">
+            <div id="hours"></div>
+          </div>
+          <p class="dots">:</p>
+          <div class="hms-container">
+            <div id="minutes"></div>
+          </div>
+          <p class="dots">:</p>
+          <div class="hms-container">
+            <div id="seconds"></div>
+          </div>
+        </div>
+        <div class="time-container-text">
+          <h3>Hours</h3>
+          <h3>Minutes</h3>
+          <h3>Seconds</h3>
+        </div>
+      </div>
+      <div class="weather-segment">
+        <h1>Weather in <span class="underline">Belgrade</span> is:</h1>
+        <div class="weather-container">
+          <div id="weather"></div>
+        </div>
+      </div>
+      <div id="thank-you">
+        <span class="thank-you-text">Thank you!</span>
+      </div>
+      <footer>
+        Coded by
+        <a href="https://dovla.me" target="_blank" rel="noopener noreferrer"
+          >Dovla</a
+        >
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          class="animation"
+          src="https://assets5.lottiefiles.com/packages/lf20_yrruhev9.json"
+          background="transparent"
+          speed="1"
+          style="width: 30px; height: 30px"
+          loop
+          autoplay
+        ></lottie-player>
+      </footer>
+      <script>
+        function updateTime() {
+          const date = new Date();
+          document.getElementById("hours").innerHTML = date.getHours();
+          document.getElementById("minutes").innerHTML = date.getMinutes();
+          let seconds = date.getSeconds();
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          document.getElementById("seconds").innerHTML = seconds;
+
+          const days = [
+            "Sunday, ",
+            "Monday, ",
+            "Tuesday, ",
+            "Wednesday, ",
+            "Thursday, ",
+            "Friday, ",
+            "Saturday, ",
+          ];
+          const months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+          const currentDay = days[date.getDay()];
+          const currentMonth = months[date.getMonth()];
+          document.getElementById(
+            "current-date"
+          ).innerHTML = `${currentDay} ${currentMonth} - ${
+            "0" + date.getDate() + "."
+          }`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        const buttonClose = document.getElementById("thank-you");
+
+        document
+          .getElementById("thank-you")
+          .addEventListener("click", function () {
+            alert("Thank you for clicking the button 🤠 You are the best! 😊");
+          });
+
+        fetch(
+          "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Belgrade?unitGroup=metric&include=current&key=41221da960bef4041bdf1d5be4cb5e9e&contentType=json",
+          {
+            method: "GET",
+            headers: {},
+          }
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            const weather = data.weather;
+            const currentWeather = weather[0];
+            document.getElementById(
+              "weather"
+            ).innerHTML = `Temperature: ${currentWeather.temp}°C, Humidity: ${currentWeather.humidity}%`;
+          })
+          .catch((err) => {
+            console.error(err);
+            document.getElementById("weather").innerHTML =
+              "Error fetching weather data.";
+          });
+      </script>
+    </main>
+  </body>
+</html>
