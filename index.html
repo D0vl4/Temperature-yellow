@@ -9,7 +9,7 @@
       name="viewport"
       content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/Weather-app/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -85,8 +85,14 @@
       <script>
         function updateTime() {
           const date = new Date();
-          document.getElementById("hours").innerHTML = date.getHours();
-          document.getElementById("minutes").innerHTML = date.getMinutes();
+          let hours = date.getHours();
+          hours = hours < 10 ? "0" + hours : hours;
+          document.getElementById("hours").innerHTML = hours;
+
+          let minutes = date.getMinutes();
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          document.getElementById("minutes").innerHTML = minutes;
+
           let seconds = date.getSeconds();
           seconds = seconds < 10 ? "0" + seconds : seconds;
           document.getElementById("seconds").innerHTML = seconds;
