@@ -104,6 +104,10 @@ h3:nth-of-type(2) {
     gap: 0.75rem;
 }
 
+h3:last-child {
+    transform: translateX(8px);
+}
+
 .hms-container {
     display: flex;
     justify-content: center;
@@ -122,6 +126,7 @@ h3:nth-of-type(2) {
     font-family: 'Chivo Mono';
     font-size: 3.5rem;
 }
+
 
 .date-container,
 #thank-you {
