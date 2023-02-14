@@ -1,3 +1,3 @@
 Hello! 👋🏻
 
-Please check the live site [HERE](https://https://yellow-design.netlify.app/)
+Please check the live site [HERE](https://yellow-design.netlify.app/)
