@@ -10,7 +10,7 @@ Overall, this was a really fun and rewarding project, and I'm proud of what I wa
 
 <h3 align="center">Screenshot</h3>
 
-![Preview](https://user-images.githubusercontent.com/116637386/200867902-869aa553-ec31-4462-a6f7-43577bfd8d27.png)
+![Preview](image/screenshot.png)
 
 
 Please check the live site [HERE](https://yellow-design.netlify.app/)
