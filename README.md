@@ -13,4 +13,4 @@ Overall, this was a really fun and rewarding project, and I'm proud of what I wa
 ![Preview](image/screenshot.png)
 
 
-Please check the live site [HERE](https://yellow-design.netlify.app/)
+Please check the live site [HERE](https://yellow-design.netlify.app/) 😎
