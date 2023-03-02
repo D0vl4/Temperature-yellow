@@ -7,9 +7,9 @@
     <meta name="description" content="" />
     <meta
       name="viewport"
-      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/Weather-app/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -59,13 +59,15 @@
       </div>
       <div class="weather-segment">
         <h1>Weather in <span class="underline">Belgrade</span> is:</h1>
-        <div class="weather-container">
+        <!-- weather ispis dole -->
+        <div id="weather-container" type="button">
           <div id="weather"></div>
         </div>
+        <!-- weather ispis gore -->
       </div>
-      <div id="thank-you">
+      <button id="thank-you">
         <span class="thank-you-text">Thank you!</span>
-      </div>
+      </button>
       <footer>
         Coded by
         <a href="https://dovla.me" target="_blank" rel="noopener noreferrer"
@@ -82,87 +84,7 @@
           autoplay
         ></lottie-player>
       </footer>
-      <script>
-        function updateTime() {
-          const date = new Date();
-          let hours = date.getHours();
-          hours = hours < 10 ? "0" + hours : hours;
-          document.getElementById("hours").innerHTML = hours;
-
-          let minutes = date.getMinutes();
-          minutes = minutes < 10 ? "0" + minutes : minutes;
-          document.getElementById("minutes").innerHTML = minutes;
-
-          let seconds = date.getSeconds();
-          seconds = seconds < 10 ? "0" + seconds : seconds;
-          document.getElementById("seconds").innerHTML = seconds;
-
-          const days = [
-            "Sunday, ",
-            "Monday, ",
-            "Tuesday, ",
-            "Wednesday, ",
-            "Thursday, ",
-            "Friday, ",
-            "Saturday, ",
-          ];
-          const months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ];
-          const currentDay = days[date.getDay()];
-          const currentMonth = months[date.getMonth()];
-          document.getElementById(
-            "current-date"
-          ).innerHTML = `${currentDay} ${currentMonth} - ${
-            "0" + date.getDate() + "."
-          }`;
-        }
-
-        setInterval(updateTime, 1000);
-        updateTime();
-
-        const buttonClose = document.getElementById("thank-you");
-
-        document
-          .getElementById("thank-you")
-          .addEventListener("click", function () {
-            alert("Thank you for clicking the button 🤠 You are the best! 🌞");
-          });
-
-        fetch(
-          "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Belgrade?unitGroup=metric&include=current&key=41221da960bef4041bdf1d5be4cb5e9e&contentType=json",
-          {
-            method: "GET",
-            headers: {},
-          }
-        )
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            const weather = data.weather;
-            const currentWeather = weather[0];
-            document.getElementById(
-              "weather"
-            ).innerHTML = `Temperature: ${currentWeather.temp}°C,`;
-          })
-          .catch((err) => {
-            console.error(err);
-            document.getElementById("weather").innerHTML =
-              "Temperature is coming when the API is approved.";
-          });
-      </script>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>

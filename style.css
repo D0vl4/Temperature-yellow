@@ -38,9 +38,9 @@ main {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    width: 24rem;
+    width: 22rem;
     /* proveriti height na kraju */
-    border: 3px solid var(--orange);
+    border: 2px solid var(--orange);
     background-color: var(--background);
     border-radius: 5px;
     overflow: hidden;
@@ -52,7 +52,6 @@ h1 {
 
 h2 {
     align-self: flex-start;
-    /* padding-left: 1rem; */
     font-weight: 400;
     font-size: 1.5rem;
 }
@@ -88,7 +87,7 @@ h3:nth-of-type(2) {
 
 .date-container,
 #thank-you {
-    width: 22rem;
+    width: 20rem;
     height: 4rem;
     background-color: var(--main-yellow);
     border-radius: 5px;
@@ -112,8 +111,8 @@ h3:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 5rem;
+    height: 5rem;
     background-color: var(--main-yellow);
     border-radius: 5px;
     border: 3px solid var(--black);
@@ -174,11 +173,11 @@ h3:last-child {
     gap: 0.5rem;
 }
 
-.weather-container {
+#weather-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 22rem;
+    width: 20rem;
     height: 11rem;
     background-color: var(--main-yellow);
     border-radius: 5px;
@@ -187,8 +186,8 @@ h3:last-child {
 }
 
 #weather {
-    max-width: 15rem;
-    text-align: center;
+    font-size: 7rem;
+    font-weight: 700;
 }
 
 footer,
