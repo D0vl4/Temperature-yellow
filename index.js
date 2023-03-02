@@ -48,7 +48,7 @@ updateTime();
 const buttonClose = document.getElementById("thank-you");
 
 document.getElementById("thank-you").addEventListener("click", function () {
-  alert("Thank you for clicking the button 🤠 You are the best! 😊");
+  alert("Thank you for clicking the button 🤠 You are the best! 🌞");
 });
 
 // API fetch below
