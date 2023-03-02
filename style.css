@@ -38,7 +38,7 @@ main {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-    width: 22rem;
+    width: 21rem;
     /* proveriti height na kraju */
     border: 2px solid var(--orange);
     background-color: var(--background);
