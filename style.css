@@ -136,6 +136,7 @@ h3:last-child {
 
 #thank-you {
     cursor: pointer;
+    color: var(--black);
 }
 
 #thank-you:active {
