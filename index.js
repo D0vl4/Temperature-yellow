@@ -39,7 +39,7 @@ function updateTime() {
   const currentMonth = months[date.getMonth()];
   document.getElementById(
     "current-date"
-  ).innerHTML = `${currentDay} ${currentMonth} - ${"0" + date.getDate() + "."}`;
+  ).innerHTML = `${currentDay} ${currentMonth} - ${date.getDate() + "."}`;
 }
 
 setInterval(updateTime, 1000);
